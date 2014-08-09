@@ -11,10 +11,9 @@
     <Appenders>
 
         <RollingFile name="RollingFile" fileName="${path}/${purpose}.log"
-                         filePattern="logs/$${date:yyyy-MM}/${purpose}-%d{MMM-dd-yyyy}-%i.log.zip">
-            <PatternLayout>
-                <Pattern>${commonPattern}</Pattern>
-            </PatternLayout>
+                         filePattern="logs/$${date:yyyy-MM}/${purpose}-%d{MMM-dd-yyyy}-%i.log.zip">\
+
+            <PatternLayout Pattern="${commonPattern}" />
             <Policies>
                 <TimeBasedTriggeringPolicy />
                 <SizeBasedTriggeringPolicy size="50 MB"/>
@@ -37,10 +36,10 @@
     </Appenders>
     <Loggers>
         <Logger name="org.nick" level="trace" additivity="false">
-            <AppenderRef ref="AsyncRollingFile"/>
+            <AppenderRef ref="AsyncConsole"/>
         </Logger>
         <Root level="error">
-            <AppenderRef ref="Console"/>
+            <AppenderRef ref="AsyncConsole"/>
         </Root>
     </Loggers>
 </Configuration>

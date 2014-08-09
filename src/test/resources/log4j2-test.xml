@@ -27,7 +27,6 @@
 
         <Async name="AsyncRollingFile">
             <AppenderRef ref="RollingFile"/>
-            <AppenderRef ref="Console"/>
         </Async>
 
         <Async name="AsyncConsole">
@@ -37,10 +36,10 @@
     </Appenders>
     <Loggers>
         <Logger name="org.nick" level="trace" additivity="false">
-            <AppenderRef ref="AsyncRollingFile"/>
+            <AppenderRef ref="AsyncConsole"/>
         </Logger>
         <Root level="error">
-            <AppenderRef ref="Console"/>
+            <AppenderRef ref="AsyncConsole"/>
         </Root>
     </Loggers>
 </Configuration>
