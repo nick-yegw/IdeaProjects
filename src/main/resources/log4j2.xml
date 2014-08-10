@@ -26,7 +26,6 @@
 
         <Async name="AsyncRollingFile">
             <AppenderRef ref="RollingFile"/>
-            <AppenderRef ref="Console"/>
         </Async>
 
         <Async name="AsyncConsole">

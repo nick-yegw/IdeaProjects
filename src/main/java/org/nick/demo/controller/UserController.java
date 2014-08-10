@@ -7,13 +7,12 @@ import org.nick.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * Created by Administrator on 14-8-10.
+ * Created by Nick on 14-8-10.
  */
 @Controller
 public class UserController {
@@ -27,7 +26,7 @@ public class UserController {
     public String addUser(@ModelAttribute("user")User user){
         logger.entry(user);
         userRepository.save(user);
-        return logger.exit("SUCCESS");
+        return logger.exit("hello");
     }
 
     @RequestMapping(value = "/display", method = RequestMethod.GET)
@@ -35,6 +34,6 @@ public class UserController {
         logger.entry(modelMap);
         modelMap.put("users", userRepository.findAll());
         logger.exit(modelMap);
-        return "SUCCESS";
+        return "hello";
     }
 }

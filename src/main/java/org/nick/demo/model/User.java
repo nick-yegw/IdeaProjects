@@ -3,7 +3,7 @@ package org.nick.demo.model;
 import javax.persistence.*;
 
 /**
- * Created by Administrator on 14-8-10.
+ * Created by Nick on 14-8-10.
  */
 @Entity
 public class User {

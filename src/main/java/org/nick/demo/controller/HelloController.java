@@ -1,4 +1,4 @@
-package org.nick.demo;
+package org.nick.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

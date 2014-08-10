@@ -12,6 +12,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
@@ -33,21 +34,18 @@ public class UserControllerTests {
     @Test
     public void testAdd() throws Exception {
         mockMvc.perform(
-                post("/add").param("user.firstName", "F")
-                             .param("user.lastName", "l"))
+                post("/add").param("firstName", "F")
+                             .param("lastName", "l"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("SUCCESS"));
-        /*mockMvc.perform(get("/"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("hello"));*/
+                .andExpect(view().name("hello"));
     }
 
     @Test
     public void testDisplay() throws Exception {
         mockMvc.perform(get("/display"))
+                .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("users"))
-                .andExpect(model().attribute("users", ""))
                 ;
 
     }
